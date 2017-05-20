@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="te" class="com.tutorialspoint.TextEditor">
+		<constructor-arg name="s" value="hello" />
+		<constructor-arg name="spellChecker" ref="sc" />
+	</bean>
+	<bean id="sc" class="com.tutorialspoint.SpellChecker" />
+	<bean id="te2" class="com.tutorialspoint.TextEditor">
+		<property name="spellChecker" ref="sc" />
+		<property name="s" value="哈哈哈" />
+	</bean>
+
+	<bean id="te3" class="com.tutorialspoint.TextEditor">
+		<property name="spellChecker">
+			<bean id="sc1" class="com.tutorialspoint.SpellChecker" />
+		</property>
+		<property name="s" value="内部类Bean" />
+	</bean>
+</beans>
